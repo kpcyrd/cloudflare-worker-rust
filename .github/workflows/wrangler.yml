@@ -15,11 +15,10 @@ jobs:
   build:
     runs-on: ubuntu-22.04
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     - name: Set up cargo cache
-      uses: actions/cache@v3
-      continue-on-error: false
+      uses: actions/cache@v4
       with:
         path: |
           ~/.cargo/bin/
@@ -37,9 +36,9 @@ jobs:
       run: worker-build --release
 
     - name: Upload worker binary
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
-        name: worker
+        name: worker-artifact
         path: build/
 
   test:
