@@ -1,0 +1,7 @@
+name = "worker-rust"
+main = "build/worker/shim.mjs"
+compatibility_date = "2023-06-28"
+
+[build]
+# imo this should be provided by `npx wrangler`
+command = "(command -v worker-build >/dev/null || cargo install -q worker-build) && worker-build --release"
