@@ -13,7 +13,7 @@ crate-type = ["cdylib"]
 
 [dependencies]
 html-escape = "0.2.13"
-worker = "0.0.18"
+worker = "0.0.19"
 
 [profile.release]
 lto = true

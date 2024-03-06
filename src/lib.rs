@@ -16,7 +16,7 @@ async fn main(req: Request, env: Env, _ctx: Context) -> Result<Response> {
 
     router
         .get_async("/", |req, _ctx| async move {
-            let mut response = Response::from_html(format!(
+            Response::from_html(format!(
                 "<!DOCTYPE html>
 <html>
     <head>
@@ -29,12 +29,7 @@ async fn main(req: Request, env: Env, _ctx: Context) -> Result<Response> {
 </html>
 ",
                 html_escape::encode_text(&format!("{req:#?}"))
-            ))?;
-            // https://github.com/cloudflare/workers-rs/pull/447
-            response
-                .headers_mut()
-                .set("Content-Type", "text/html; charset=utf-8")?;
-            Ok(response)
+            ))
         })
         .post_async("/upload", file_upload)
         .run(req, env)
