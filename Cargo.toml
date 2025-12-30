@@ -2,7 +2,7 @@
 name = "example-worker-rust"
 version = "0.1.0"
 publish = false
-edition = "2021"
+edition = "2024"
 
 # https://github.com/rustwasm/wasm-pack/issues/1247
 [package.metadata.wasm-pack.profile.release]
@@ -13,7 +13,7 @@ crate-type = ["cdylib"]
 
 [dependencies]
 html-escape = "0.2.13"
-worker = "0.6"
+worker = "0.7"
 
 [profile.release]
 lto = true
